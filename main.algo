@@ -1,0 +1,74 @@
+ALGORITHM algorithm_linear_data
+//problem 1 solution 1
+VAR
+    sum:=0;
+    array_1 : ARRAY_OF numbers[n];
+    array_2: ARRAY_OF numbers[n];
+BEGIN
+    for (var i = 0, i<array1.length, i++){
+       IF (array_1[i]!=array_2[i]) THEN
+           sum+=array_1[i]
+       END_IF }
+       for (i = 0, i<array2.length, i++){
+       IF (array_1[i]!=array_2[i]) THEN
+           sum+=array_2[i]
+       END_IF }
+       return sum;
+END
+ALGORITHM algorithm_linear_data
+//problem 1 solution 2
+VAR
+    array_1 : ARRAY_OF numbers[];
+    array_2: ARRAY_OF numbers[];
+    sum:=0;
+    tb:= HASH_TABLE<INTEGER,INTEGER>
+    i, count : INTEGER;
+    arr : array_1 + array_2;
+    verify : BOOLEAN;
+BEGIN
+    
+    FOR i FROM 0 TO array_1.length -1 STEP 1  DO
+    verify := FALSE;
+    FOR j FROM 0 TO array_2.length -1 STEP 1  DO
+    tb.insert(i,array_1[i]);
+    tb.insert(i,array_2[j]);
+        IF (tb.lookup(array_1[i]) = tb.lookup(array_2[j])) THEN
+        verify := TRUE;  
+        
+        ELSE
+        tb.insert(arr[i],1);
+        END_IF
+    END_FOR
+    IF (tb.lookup(array_1[i]) <> tb.lookup(array_2[j])) THEN
+        verify := FALSE;
+    END_IF
+    tb.insert(arr[i], count+1);
+    END_FOR
+END
+//problem 2
+ALGORITHM algorithm_name
+VAR
+    array_1 : ARRAY_OF numbers[];
+    array_2: ARRAY_OF numbers[];
+    sum:=0;
+    tb:= HASH_TABLE<INTEGER,INTEGER>
+    i, count : INTEGER;
+    arr : array_1 + array_2;
+    verify : BOOLEAN;
+    sum:=0;
+BEGIN
+    
+    FOR i FROM 0 TO array_1.length -1 STEP 1  DO
+    verify := FALSE;
+    FOR j FROM 0 TO array_2.length -1 STEP 1  DO
+    tb.insert(i,array_1[i]);
+    tb.insert(i,array_2[j]);
+        IF (tb.lookup(array_1[i]) = tb.lookup(array_2[j])) THEN
+        verify := TRUE;  
+        
+        ELSE
+        tb.insert(arr[i],arr[j]);
+        sum+=arr[i],arr[j];
+        END_IF
+    END_FOR
+END
